@@ -23,21 +23,24 @@ class ProfileViewController: UIViewController {
     }
     
     @IBAction func loadUserDataButtonAction(_ sender: UIButton) {
-        
-        dataProvider.loadUserData()
+        dataProvider.loadUserData { user in
+            updateUI(with: user)
+        }
     }
     
     @IBAction func loadAdminDataButtonAction(_ sender: UIButton) {
         
-        dataProvider.loadAdminData()
+        dataProvider.loadAdminData{ admin in
+            updateUI(with: admin)
+        }
     }
     
-    func updateUI() {
+    func updateUI(with profileData: ProfileData) {
         
-//        avaImageView.image = UIImage(named: "")
-//        firstNameLabel.text =
-//        lastNameLabel.text =
-//        eMailLabel.text =
-//        addressLabel.text =
+        avaImageView.image = UIImage(named: profileData.avatarName )
+        firstNameLabel.text = profileData.firstName
+        lastNameLabel.text = profileData.lastName
+        eMailLabel.text = profileData.eMail
+        addressLabel.text = profileData.address
     }
 }

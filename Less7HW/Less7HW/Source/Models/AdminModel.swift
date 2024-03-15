@@ -15,3 +15,28 @@ struct AdminModel {
     let adminEmail: String
     let adminAdderss: String
 }
+
+extension AdminModel: ProfileData {
+    var avatarName: String {
+        return adminAvatarName
+    }
+    
+    var firstName: String {
+        return adminFirstName
+    }
+    
+    var lastName: String {
+        return adminLastName
+    }
+    
+    var eMail: String {
+        return adminEmail
+    }
+    
+    var address: String {
+        return adminAdderss
+    }
+    
+}
+    
+    
